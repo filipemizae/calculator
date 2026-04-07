@@ -1,18 +1,14 @@
 package com.calc.calculator.controller;
 
-import  org.springframework.web.bind.annotation.CrossOrigin;
 import  org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import  org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.calc.calculator.model.OperationRequest;
 
-
-
 @RestController
 @RequestMapping("/api/calculator")
-@CrossOrigin(origins = "calculator-production-4150.up.railway.app")
 
 public class CalculatorController {
 

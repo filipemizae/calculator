@@ -4,7 +4,7 @@ let num2 = '';
 let currentOperation = '';
 let num2Waiting = false;
 
-fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
+fetch('https://calculator-production-4150.up.railway.app/api/calculator/calculate', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ num1: 1, num2: 1, operation: '+' })
@@ -49,7 +49,7 @@ document.querySelector('#result').addEventListener('click', async () => {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 60000)
 
-    const response = await fetch('calculator-production-4150.up.railway.app', {
+    const response = await fetch('https://calculator-production-4150.up.railway.app/api/calculator/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
