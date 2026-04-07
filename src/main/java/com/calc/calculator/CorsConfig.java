@@ -12,7 +12,7 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("https://calculator-nu-hazel-75.vercel.app");
+        config.addAllowedOrigin("calculator-production-4150.up.railway.app");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
 

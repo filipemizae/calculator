@@ -49,7 +49,7 @@ document.querySelector('#result').addEventListener('click', async () => {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 60000)
 
-    const response = await fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
+    const response = await fetch('calculator-production-4150.up.railway.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
