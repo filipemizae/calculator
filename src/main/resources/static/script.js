@@ -35,7 +35,11 @@ document.querySelectorAll('#operation_panel button:not(#result)').forEach(btn =>
 document.querySelector('#result').addEventListener('click', async () => {
     
     if(!num1 || !num2 || !currentOperation) return;
-    
+
+    display.textContent = "...";
+
+    try{
+
     const response = await fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
@@ -46,7 +50,11 @@ document.querySelector('#result').addEventListener('click', async () => {
         })
     });
 
-    const result = await response.json();
+    if(!response.ok){
+        throw new Error("API error");
+    }
+
+    const result = await response.text();
     display.textContent = result;
 
     //Next operation
@@ -54,6 +62,12 @@ document.querySelector('#result').addEventListener('click', async () => {
     num2 = '';
     currentOperation = '';
     num2Waiting = false;
+
+}catch(error){
+    console.log(error);
+    display.textContent = "Erro";
+
+}
 
 })
 
