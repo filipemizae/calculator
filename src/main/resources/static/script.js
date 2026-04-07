@@ -35,8 +35,8 @@ document.querySelectorAll('#operation_panel button:not(#result)').forEach(btn =>
 document.querySelector('#result').addEventListener('click', async () => {
     
     if(!num1 || !num2 || !currentOperation) return;
-
-    const response = await fetch('http://localhost:8080/api/calculator/calculate', {
+    
+    const response = await fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
