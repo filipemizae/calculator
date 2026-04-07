@@ -12,7 +12,7 @@ import com.calc.calculator.model.OperationRequest;
 
 @RestController
 @RequestMapping("/api/calculator")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://calculator-nu-hazel-75.vercel.app")
 
 public class CalculatorController {
 

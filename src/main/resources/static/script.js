@@ -4,6 +4,12 @@ let num2 = '';
 let currentOperation = '';
 let num2Waiting = false;
 
+fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ num1: 1, num2: 1, operation: '+' })
+}).catch(() => {});
+
 //Buttons
 
 document.querySelectorAll('#num_panel button').forEach(btn => {
@@ -36,9 +42,12 @@ document.querySelector('#result').addEventListener('click', async () => {
     
     if(!num1 || !num2 || !currentOperation) return;
 
-    display.textContent = "...";
+    display.textContent = "Loading...";
 
     try{
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60000)
 
     const response = await fetch('https://calculator-api.onrender.com/api/calculator/calculate', {
         method: 'POST',
@@ -47,8 +56,11 @@ document.querySelector('#result').addEventListener('click', async () => {
             num1: parseFloat(num1),
             num2: parseFloat(num2),
             operation: currentOperation
-        })
+        }),
+        signal: controller.signal
     });
+
+    clearTimeout(timeout);
 
     if(!response.ok){
         throw new Error("API error");
