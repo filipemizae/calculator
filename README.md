@@ -42,7 +42,3 @@ mvn spring-boot:run
 Open `index.html` directly in the browser or move it to `src/main/resources/static/`.
 
 Abra o `index.html` diretamente no navegador ou mova para `src/main/resources/static/`.
-
----
-
-## 📁 Project Structure / Estrutura do Projeto
